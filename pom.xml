@@ -35,6 +35,19 @@
 		    <artifactId>httpclient</artifactId>
 		    <version>4.5.14</version>
 		</dependency>
+		
+		<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-jdbc</artifactId>
+    <version>5.3.27</version> 
+    </dependency>
+<!-- Source: https://mvnrepository.com/artifact/com.teradata.jdbc/terajdbc -->
+<dependency>
+    <groupId>com.teradata.jdbc</groupId>
+    <artifactId>terajdbc</artifactId>
+    <version>17.20.00.12</version>
+    <scope>compile</scope>
+</dependency>
 
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>

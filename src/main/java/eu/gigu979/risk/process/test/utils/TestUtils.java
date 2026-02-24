@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import eu.gigu979.risk.process.test.model.ApiResponse;
-import eu.gigu979.risk.process.test.model.ProcessModelDto;
+import eu.gigu979.risk.process.test.model.ProcessRequestDto;
 
 public final class TestUtils {
 
@@ -32,8 +32,8 @@ public final class TestUtils {
 	/**
 	 * Creates a valid DTO with default values. Used as a baseline for tests.
 	 */
-	public static ProcessModelDto createValidDto() {
-		ProcessModelDto dto = new ProcessModelDto();
+	public static ProcessRequestDto createValidDto() {
+		ProcessRequestDto dto = new ProcessRequestDto();
 		dto.setName("TEST_PROCESS");
 		dto.setRunDate(LocalDate.now());
 		dto.setPriority("HIGH");
@@ -44,8 +44,11 @@ public final class TestUtils {
 	/**
 	 * Extracts and deserializes the ApiResponse from the HTTP response.
 	 */
-	public static ApiResponse<?> parseResponse(CloseableHttpResponse response) throws IOException {
+	@SuppressWarnings("unchecked")
+	public static <T> ApiResponse<T> parseResponse(CloseableHttpResponse response) throws IOException {
 		String json = EntityUtils.toString(response.getEntity());
 		return MAPPER.readValue(json, ApiResponse.class);
 	}
+	
+	
 }

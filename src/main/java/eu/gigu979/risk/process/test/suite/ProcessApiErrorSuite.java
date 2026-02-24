@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 
 import eu.gigu979.risk.process.test.exception.BusinessError;
 import eu.gigu979.risk.process.test.model.ApiResponse;
-import eu.gigu979.risk.process.test.model.ProcessModelDto;
+import eu.gigu979.risk.process.test.model.ProcessRequestDto;
 import eu.gigu979.risk.process.test.utils.AssertUtils;
 import eu.gigu979.risk.process.test.utils.ClientUtils;
 import eu.gigu979.risk.process.test.utils.TestUtils;
@@ -38,7 +38,7 @@ public class ProcessApiErrorSuite {
 	@Test
 	@DisplayName("Test Error: Name Missing (BE-004)")
 	void testCreateEvent_NameMissing() throws IOException, ParseException {
-		ProcessModelDto dto = TestUtils.createValidDto();
+		ProcessRequestDto dto = TestUtils.createValidDto();
 		dto.setName(null);
 
 		// Utilizzo factory method per eliminare BASE_URL e StringEntity manuale
@@ -53,7 +53,7 @@ public class ProcessApiErrorSuite {
 	@Test
 	@DisplayName("Test Error: Date Missing (BE-005)")
 	void testCreateEvent_DateMissing() throws IOException, ParseException {
-		ProcessModelDto dto = TestUtils.createValidDto();
+		ProcessRequestDto dto = TestUtils.createValidDto();
 		dto.setRunDate(null);
 
 		HttpPost request = ClientUtils.createPostRequest(dto);
